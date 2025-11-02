@@ -2,9 +2,9 @@
 import java.rmi.Naming;
 
 public class Cliente {
-    String nome;
-    Lance lance;
-    boolean estadoCliente = true;
+    private String nome;
+    private Lance lance;
+    private boolean estadoCliente = true;
 
 
     public static void main(String[] args) {
@@ -17,16 +17,19 @@ public class Cliente {
     }
 
 
-    public Cliente(String nome,  Lance lance){
+    public Cliente(String nome){
 
-        this.nome = nome;
-        this.lance = lance;        
+        this.nome = nome;        
     }
     public String getNome() {
         return nome;
     }
     public Lance getLance() {
         return lance;
+    }
+
+    public void setLance(Lance lance) {
+        this.lance = lance;
     }
 
     public boolean isEstadoCliente() {

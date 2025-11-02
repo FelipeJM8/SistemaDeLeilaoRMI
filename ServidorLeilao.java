@@ -6,6 +6,7 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class ServidorLeilao extends UnicastRemoteObject{
 
@@ -29,27 +30,28 @@ public class ServidorLeilao extends UnicastRemoteObject{
         super();
     }
 
-    public boolean registrar(String nome, Lance lance){
-        clientes.add(new Cliente(nome, lance)); 
+    public boolean registrar(Cliente cliente){
+        clientes.add(new Cliente(cliente.getNome()));
         return true;
     }
 
     public String notificar(){
         for (Cliente cliente : clientes) {//TEM QUE VER ISSO AI   
         }
-        return "javaRuim";
+        return "Novo lance feito:";//ve ai se faz uma lista de lance ou sei la, inventa ai
     }
 
-    public boolean  ofertarLance(Cliente cliente, float oferta){
+    public boolean  ofertarLance(Cliente cliente){
 
-        cliente.lance = new Lance(oferta);
+    cliente.setLance(new Lance(33));//ATEM QUER VER ISSO AI: a oferta deve ser passada por scan
         notificar();
 
             return true;
     }
-    public boolean  sairDoLeilao(String nome){
+    public boolean  sairDoLeilao(Cliente cliente){// ok!
 
-
+        cliente.setEstadoCliente(false);
+        System.out.println("Voce saiu do leilao");
                 return true;
     }
 

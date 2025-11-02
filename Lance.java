@@ -1,13 +1,13 @@
 public class Lance {
 
-    float lance;
+    float oferta;
 
-    public Lance(float lance){
-        this.lance = lance;
+    public Lance(float oferta){
+        this.oferta = oferta;
     }
 
-    public float getLance() {
-        return lance;
+    public float getOferta() {
+        return oferta;
     }
     
 }
