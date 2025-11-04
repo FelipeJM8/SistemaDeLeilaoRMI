@@ -9,8 +9,15 @@ public class Cliente {
 
     public static void main(String[] args) {
         try { 
-            ServidorLeilao servidor = (ServidorLeilao)Naming.lookup("rim//firipu");
-         //   String retorno = servidor.registrar("felipe", lance); TEM QUE VER ISSO AI
+            InterfaceLeilao servidor = (InterfaceLeilao)Naming.lookup("InterfaceLeilao");
+
+            Cliente enviarCliente = new Cliente("Felipe");
+           enviarCliente.setLance(new Lance(30));
+
+           boolean sucesso = servidor.registrar(enviarCliente);
+           System.out.println("Registro: " + (sucesso ? "SUCESSO" : "FALHA"));
+           servidor.notificar();
+
             
         } catch (Exception e) {
         }

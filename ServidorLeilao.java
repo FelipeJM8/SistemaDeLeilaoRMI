@@ -1,12 +1,10 @@
 
-import java.net.MalformedURLException;
-import java.nio.charset.MalformedInputException;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class ServidorLeilao extends UnicastRemoteObject{
 
@@ -16,6 +14,7 @@ public class ServidorLeilao extends UnicastRemoteObject{
     public static void main(String[] args) {
         try {
             ServidorLeilao serv = new ServidorLeilao();
+            LocateRegistry.createRegistry(1099); // 1099 é a porta padrão
             Naming.rebind("ServidorLeilao", serv);
             System.out.println("Servidor pronto.");
         } catch (Exception e) {
